@@ -1,0 +1,84 @@
+/* Глобальные стили для устранения отступов и скролла */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  /* Убираем возможные внутренние отступы */
+  padding: 0;
+  margin: 0;
+  /* Обеспечиваем точное соответствие размеров */
+  box-sizing: border-box;
+}
+
+/* Остальные стили без изменений */
+.particle-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  touch-action: none;
+  /* Убираем возможные границы canvas */
+  display: block;
+  outline: none;
+  border: none;
+}
+
+.footer {
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  z-index: 10;
+}
+
+.footer-text {
+  font-family: monospace;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.white-text {
+  color: white;
+}
+
+.teal-text {
+  color: #00ff00;
+}
+
+/* Адаптивные стили */
+@media (min-width: 640px) {
+  .footer-text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-text {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+/* Стили для ссылки (если раскомментировать) */
+.invite-link {
+  color: #d1d5db;
+  transition: color 0.3s;
+}
+
+.invite-link:hover {
+  color: #00ff00;
+}

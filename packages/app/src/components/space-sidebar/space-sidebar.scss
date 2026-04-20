@@ -1,0 +1,162 @@
+@use "../../scss/globals.scss";
+
+.space-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: globals.$dark-background-color;
+  border-right: 1px solid globals.$border-color;
+  position: relative;
+  user-select: none;
+
+  // ── Banner Area ──
+  &__banner-area {
+    position: relative;
+    width: 100%;
+    min-height: 48px;
+    border-bottom: 1px solid globals.$border-color;
+    overflow: hidden;
+  }
+
+  &__banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+
+  &__banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: globals.$profile-banner-gradient;
+    pointer-events: none;
+  }
+
+  &__banner-button {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: globals.$spacing-unit * 1.5 globals.$spacing-unit;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &:hover {
+      background-color: globals.$hover-button-background;
+    }
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: globals.$muted-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // ── Channels ──
+  &__channels {
+    flex: 1;
+    overflow-y: auto;
+    padding: globals.$spacing-unit 0;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 2px;
+    }
+  }
+
+  &__category {
+    margin-bottom: globals.$spacing-unit;
+  }
+
+  &__category-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: globals.$spacing-unit * 0.75 globals.$spacing-unit * 1.5;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: globals.$body-color;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: color 0.15s;
+
+    &:hover {
+      color: globals.$muted-color;
+    }
+  }
+
+  &__channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 0 globals.$spacing-unit * 0.5;
+  }
+
+  &__channel {
+    display: flex;
+    align-items: center;
+    gap: globals.$spacing-unit;
+    padding: globals.$spacing-unit globals.$spacing-unit;
+    border-radius: 4px;
+    border: none;
+    background: transparent;
+    color: globals.$body-color;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    width: 100%;
+    text-align: left;
+
+    &:hover {
+      background-color: globals.$hover-button-background;
+      color: globals.$muted-color;
+    }
+
+    &--active {
+      background-color: globals.$hover-button-active-background;
+      color: globals.$muted-color;
+    }
+  }
+
+  // ── Resize Handle ──
+  &__resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 10;
+    transition: background-color 0.15s;
+
+    &:hover,
+    &--active {
+      background-color: globals.$cyan-color;
+    }
+  }
+}

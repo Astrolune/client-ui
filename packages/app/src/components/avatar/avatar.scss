@@ -1,0 +1,51 @@
+@use "../../scss/globals.scss";
+
+.profile-avatar {
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: globals.$background-color;
+  border: solid 1px globals.$border-color;
+  cursor: pointer;
+  color: globals.$muted-color;
+  position: relative;
+  flex-shrink: 0;
+
+  &--rounded {
+    border-radius: 50%;
+
+    .profile-avatar__image {
+      border-radius: 50%;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  // Status dot — positioned bottom-right, scaled relative to avatar size
+  &__status {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 30%;
+    height: 30%;
+    min-width: 8px;
+    min-height: 8px;
+    max-width: 14px;
+    max-height: 14px;
+    border-radius: 50%;
+    border: 2px solid globals.$background-color;
+
+    &--online    { background-color: #23a55a; }
+    &--dnd       { background-color: globals.$danger-color; }
+    &--inactive  { background-color: globals.$warning-color; }
+    &--offline,
+    &--invisible { background-color: globals.$body-color; }
+  }
+}

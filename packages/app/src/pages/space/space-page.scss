@@ -1,0 +1,95 @@
+@use "../../scss/globals.scss";
+
+.space-page {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: globals.$background-color;
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  &__voice-channel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: globals.$spacing-unit * 2;
+    padding: globals.$spacing-unit * 4;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: globals.$muted-color;
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: globals.$body-color;
+      margin: 0;
+    }
+  }
+
+  &__welcome {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: globals.$spacing-unit * 2;
+    padding: globals.$spacing-unit * 4;
+    text-align: center;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: globals.$light-color;
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: globals.$body-color;
+      margin: 0;
+      max-width: 500px;
+    }
+  }
+
+  &__not-found {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: globals.$spacing-unit * 2;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: globals.$muted-color;
+      margin: 0;
+    }
+
+    button {
+      padding: globals.$spacing-unit globals.$spacing-unit * 2;
+      border-radius: 6px;
+      border: 1px solid globals.$border-color;
+      background: globals.$hover-button-background;
+      color: globals.$muted-color;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+
+      &:hover {
+        background-color: globals.$hover-button-active-background;
+      }
+    }
+  }
+}

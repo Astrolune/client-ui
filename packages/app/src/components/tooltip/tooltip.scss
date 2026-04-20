@@ -1,0 +1,44 @@
+@use "../../scss/globals.scss";
+
+.tooltip {
+  position: fixed;
+  z-index: 9999;
+  background-color: rgba(10, 10, 10, 0.97);
+  border: 1px solid globals.$border-color;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: globals.$muted-color;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  animation: tooltip-in 0.1s ease-out;
+
+  &--top {
+    transform: translate(-50%, -100%);
+  }
+
+  &--bottom {
+    transform: translate(-50%, 0);
+  }
+
+  &--left {
+    transform: translate(-100%, -50%);
+  }
+
+  &--right {
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    scale: 0.92;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}

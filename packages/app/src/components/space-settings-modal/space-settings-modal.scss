@@ -1,0 +1,340 @@
+@use "../../scss/globals.scss";
+
+.space-settings-modal {
+  animation: spaceSettingsSlideIn 0.2s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal none running;
+  background-color: globals.$dark-background-color;
+  border-radius: 8px;
+  width: 1200px;
+  height: 680px;
+  max-width: 100vw;
+  max-height: 85vh;
+  min-width: 800px;
+  min-height: 600px;
+  color: globals.$body-color;
+  border: solid 1px globals.$border-color;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: globals.$modal-z-index + 15;
+
+  &--closing {
+    animation-name: spaceSettingsSlideOut;
+    opacity: 0;
+  }
+
+  // ── Header ──
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: globals.$spacing-unit * 2;
+    border-bottom: solid 1px globals.$border-color;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: globals.$muted-color;
+      margin: 0;
+    }
+  }
+
+  &__close-button {
+    cursor: pointer;
+    color: globals.$body-color;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: flex;
+
+    &:hover {
+      opacity: 0.75;
+      background-color: globals.$hover-button-background;
+    }
+  }
+
+  // ── Body ──
+  &__body {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  // ── Sidebar ──
+  &__sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    border-right: 1px solid globals.$border-color;
+    padding: globals.$spacing-unit * 1.5;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: globals.$spacing-unit * 2;
+    transition: width 0.2s ease;
+
+    &--collapsed {
+      width: 72px;
+      align-items: center;
+
+      .space-settings-modal__category-title {
+        display: none;
+      }
+
+      .space-settings-modal__sidebar-item {
+        justify-content: center;
+        padding: globals.$spacing-unit;
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__collapse-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: globals.$spacing-unit;
+    border: 1px solid globals.$border-color;
+    border-radius: 6px;
+    background: transparent;
+    color: globals.$body-color;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: globals.$spacing-unit;
+
+    &:hover {
+      background-color: globals.$hover-button-background;
+      color: globals.$muted-color;
+    }
+  }
+
+  &__space-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: globals.$spacing-unit;
+    padding-bottom: globals.$spacing-unit * 1.5;
+    border-bottom: 1px solid globals.$border-color;
+
+    &--collapsed {
+      padding-bottom: globals.$spacing-unit;
+    }
+  }
+
+  &__space-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: globals.$muted-color;
+  }
+
+  &__category-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__category-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: globals.$body-color;
+    padding: globals.$spacing-unit * 0.5 globals.$spacing-unit;
+    margin-bottom: 2px;
+  }
+
+  &__sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: globals.$spacing-unit;
+    padding: globals.$spacing-unit globals.$spacing-unit * 1.25;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: globals.$body-color;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+
+    &:hover {
+      background-color: globals.$hover-button-background;
+      color: globals.$muted-color;
+    }
+
+    &--active {
+      background-color: globals.$hover-button-active-background;
+      color: globals.$muted-color;
+    }
+
+    &--collapsed {
+      justify-content: center;
+      padding: globals.$spacing-unit;
+    }
+  }
+
+  // ── Content ──
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  &__content-header {
+    padding: globals.$spacing-unit * 2 globals.$spacing-unit * 3;
+    border-bottom: 1px solid globals.$border-color;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: globals.$light-color;
+      margin: 0;
+    }
+  }
+
+  &__content-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: globals.$spacing-unit * 3;
+  }
+}
+
+// ── Form ──
+.space-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: globals.$spacing-unit * 2.5;
+  max-width: 600px;
+
+  &__banner {
+    width: 100%;
+    height: 120px;
+    border-radius: 8px;
+    border: 2px dashed globals.$border-color;
+    overflow: hidden;
+  }
+
+  &__banner-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: globals.$spacing-unit;
+    color: globals.$body-color;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover {
+      background-color: globals.$hover-button-background;
+      border-color: globals.$muted-color;
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+  &__avatar-edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid globals.$border-color;
+    background: globals.$dark-background-color;
+    color: globals.$body-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover {
+      background-color: globals.$hover-button-background;
+      color: globals.$muted-color;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: globals.$spacing-unit;
+    justify-content: flex-end;
+    margin-top: globals.$spacing-unit;
+  }
+}
+
+// ── Placeholder ──
+.space-settings-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: globals.$spacing-unit * 1.5;
+  padding: globals.$spacing-unit * 8;
+  text-align: center;
+  color: globals.$body-color;
+
+  svg {
+    color: rgba(globals.$body-color, 0.3);
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: globals.$muted-color;
+    margin: 0;
+  }
+
+  p {
+    font-size: 13px;
+    margin: 0;
+    max-width: 400px;
+  }
+
+  &--danger {
+    border: 1px solid rgba(globals.$danger-color, 0.2);
+    border-radius: 8px;
+    background: rgba(globals.$danger-color, 0.05);
+
+    svg {
+      color: globals.$danger-color;
+    }
+
+    h3 {
+      color: globals.$danger-color;
+    }
+  }
+}
+
+@keyframes spaceSettingsSlideIn {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes spaceSettingsSlideOut {
+  0% {
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 0.9;
+  }
+}
