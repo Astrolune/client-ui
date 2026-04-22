@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="10.*" />
+  </ItemGroup>
+
+  <!-- Embed frontend build outputs -->
+  <ItemGroup Condition="Exists('packages\app\dist')">
+    <EmbeddedResource Include="packages\app\dist\**\*" LogicalName="app/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('packages\splash\dist')">
+    <EmbeddedResource Include="packages\splash\dist\**\*" LogicalName="splash/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- Build frontend before compiling -->
+  <Target Name="BuildFrontend" BeforeTargets="BeforeBuild" Condition="'$(Configuration)' == 'Release'">
+    <Message Text="Building frontend packages..." Importance="high" />
+
+    <!-- Build splash -->
+    <Exec Command="npm install" WorkingDirectory="packages\splash" />
+    <Exec Command="npm run build" WorkingDirectory="packages\splash" />
+
+    <!-- Build app -->
+    <Exec Command="npm install" WorkingDirectory="packages\app" />
+    <Exec Command="npm run build" WorkingDirectory="packages\app" />
+  </Target>
+
+</Project>

@@ -17,6 +17,7 @@
     "tauri:build": "tauri build"
   },
   "dependencies": {
+    "@astrolune/core": "file:../core",
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
     "@fontsource/noto-sans": "^5.1.1",

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "iMbqAI+bqy4=",
+  "success": true,
+  "projectFilePath": "D:\\Full_dev\\astrolune-project\\Astrolune.Desktop\\Astrolune.UI\\Astrolune.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ankerin\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\10.0.6\\microsoft.extensions.fileproviders.abstractions.10.0.6.nupkg.sha512",
+    "C:\\Users\\Ankerin\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\10.0.6\\microsoft.extensions.fileproviders.embedded.10.0.6.nupkg.sha512",
+    "C:\\Users\\Ankerin\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.6\\microsoft.extensions.primitives.10.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
