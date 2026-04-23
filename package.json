@@ -2,25 +2,14 @@
   "name": "@astrolune/client-ui",
   "version": "0.1.0",
   "private": true,
-  "description": "Astrolune client UI monorepo",
+  "description": "Astrolune client UI applications",
   "author": "Ankerin",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "pnpm --filter \"./packages/*\" dev",
-    "build": "pnpm --filter \"./packages/*\" build",
-    "lint": "pnpm --filter \"./packages/*\" lint",
-    "typecheck": "pnpm --filter \"./packages/*\" typecheck",
-    "clean": "pnpm --filter \"./packages/*\" clean && rm -rf node_modules"
-  },
-  "devDependencies": {
-    "@types/node": "^22.15.18",
-    "typescript": "^5.8.3"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
+    "build:app": "cd src/app && npm install && npm run build",
+    "build:splash": "cd src/splash && npm install && npm run build",
+    "build": "npm run build:app && npm run build:splash",
+    "dev:app": "cd src/app && npm run dev",
+    "dev:splash": "cd src/splash && npm run dev"
   }
 }
