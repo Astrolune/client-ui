@@ -6,6 +6,7 @@
   "author": "Ankerin",
   "license": "MIT",
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "build:app": "cd src/app && npm install && npm run build",
     "build:splash": "cd src/splash && npm install && npm run build",
     "build": "npm run build:app && npm run build:splash",
