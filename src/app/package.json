@@ -6,15 +6,11 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "pretauri": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Get-Process astrolune_desktop -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue; if (Get-Command Get-NetTCPConnection -ErrorAction SilentlyContinue) { $ownerPids = Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; foreach ($ownerPid in $ownerPids) { Stop-Process -Id $ownerPid -Force -ErrorAction SilentlyContinue } }; $exe='src-tauri\\target\\debug\\astrolune_desktop.exe'; if (Test-Path $exe) { Remove-Item $exe -Force -ErrorAction SilentlyContinue }\"",
     "dev": "vite --port 5173 --strictPort",
     "build": "tsc -b && vite build",
     "typecheck": "tsc -b",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "tauri": "node scripts/tauri-wrapper.cjs",
-    "tauri:dev": "tauri dev",
-    "tauri:build": "tauri build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@astrolune/core": "file:../core",

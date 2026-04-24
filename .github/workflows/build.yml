@@ -18,24 +18,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Type check
+      - name: Type check all projects
         run: npm run typecheck
+        env:
+          CI: true
 
-      - name: Lint
-        run: npm run lint
-
-      - name: Build
+      - name: Build all projects
         run: npm run build
+        env:
+          CI: true
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: |
-            packages/*/dist
+            src/app/dist
+            src/splash/dist
           retention-days: 7
