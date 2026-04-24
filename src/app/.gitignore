@@ -37,6 +37,5 @@ src-tauri/.env.*
 
 tsconfig.node.tsbuildinfo
 tsconfig.web.tsbuildinfo
-package-lock.json
 dist/
 
