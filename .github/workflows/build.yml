@@ -19,13 +19,13 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - name: Setup npm
+        uses: npm/action-setup@v2
         with:
           version: 8
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
+      - name: Get npm store directory
+        id: npm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
@@ -39,16 +39,16 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install --frozen-lockfile
 
       - name: Type check
-        run: pnpm typecheck
+        run: npm typecheck
 
       - name: Lint
-        run: pnpm lint
+        run: npm lint
 
       - name: Build
-        run: pnpm build
+        run: npm build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
