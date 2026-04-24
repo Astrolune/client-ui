@@ -6,13 +6,13 @@
   "author": "Ankerin",
   "license": "MIT",
   "scripts": {
+    "install:app": "cd src/app && npm ci",
+    "install:splash": "cd src/splash && npm ci",
     "typecheck:app": "cd src/app && npm run typecheck",
     "typecheck:splash": "cd src/splash && npm run typecheck",
-    "typecheck": "npm run typecheck:app && npm run typecheck:splash",
+    "typecheck": "npm run install:app && npm run install:splash && npm run typecheck:app && npm run typecheck:splash",
     "build:app": "cd src/app && npm install && npm run build",
     "build:splash": "cd src/splash && npm install && npm run build",
-    "build": "npm run build:app && npm run build:splash",
-    "dev:app": "cd src/app && npm run dev",
-    "dev:splash": "cd src/splash && npm run dev"
+    "build": "npm run build:app && npm run build:splash"
   }
 }
