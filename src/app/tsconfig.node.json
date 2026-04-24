@@ -6,9 +6,9 @@
     "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "types": ["node"],
     "noEmit": true,
-    "strict": false
+    "strict": false,
+    "ignoreDeprecations": "6.0"
   },
   "include": ["vite.config.ts"]
 }
