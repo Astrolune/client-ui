@@ -30,11 +30,11 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: Setup pnpm cache
+      - name: Setup npm cache
         uses: actions/cache@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.npm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-npm-store-${{ hashFiles('**/packages-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
